@@ -18,7 +18,6 @@ const updateAbayaSize = (e,val) =>{
   setAbayaSize(e.target.value)
 }
   return (
-    <>
       <Card sx={{ maxWidth: 250 , marginLeft:'20px', marginTop:'100px'}} >
         <CardMedia
           component={"img"}
@@ -43,7 +42,6 @@ const updateAbayaSize = (e,val) =>{
             </Button>
         </CardContent>
       </Card>
-    </>
   );
 };
 

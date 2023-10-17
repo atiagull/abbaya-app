@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ProductCard from './ProductCard';
+import { Container, Typography} from "@mui/material";
 import Spinner from './Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -14,20 +15,20 @@ const ProductCardsHolder = () => {
   };
 
   return (
-    <div>
+      <Container sx ={{marginTop : 10}}><Typography variant='h3' component="div" sx={{textAlign : 'center'}}> Our Collections</Typography>
       <InfiniteScroll
         dataLength={items.length}
         next={fetchMoreData}
         hasMore={true}
         loader={<Spinner />}
-        style={{ display: 'flex', flexWrap: 'wrap', marginLeft: '10%', marginRight: '10%' }}>
+        style={{ display: 'flex', flexWrap: 'wrap'}}>
         {items.map((item, index) => (
           <div  key={index}>
             <ProductCard />
           </div>
         ))}
       </InfiniteScroll>
-    </div>
+      </Container>
   );
 }
 
