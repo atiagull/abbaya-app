@@ -5,10 +5,13 @@ import Spinner from './Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const ProductCardsHolder = () => {
-  const [items, setItems] = useState(Array.from({ length: 20 }));
+  const [items, setItems] = useState(Array.from({ length: 10 }));
 
   const fetchMoreData = () => {
     // Simulate a fake async API call that adds 20 more records after a delay
+    if(items.length>30){
+      return;
+    }
     setTimeout(() => {
       setItems(prevItems => [...prevItems, ...Array.from({ length: 10 })]);
     }, 1500);
@@ -19,7 +22,7 @@ const ProductCardsHolder = () => {
       <InfiniteScroll
         dataLength={items.length}
         next={fetchMoreData}
-        hasMore={true}
+        hasMore={items.length<30}
         loader={<Spinner />}
         style={{ display: 'flex', flexWrap: 'wrap'}}>
         {items.map((item, index) => (
